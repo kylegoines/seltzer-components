@@ -1,4 +1,9 @@
-import components from './components'
-import manageComponents from './core/manageComponents'
+// import components from './components'
+// import seltzerHydrate from './core/seltzerHydrate'
 
-manageComponents(components)
+export { default as default } from './core/seltzerHydrate'
+import BaseComponent from './core/BaseComponent'
+
+export { BaseComponent }
+
+// export default seltzerHydrate

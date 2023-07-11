@@ -5,9 +5,7 @@ class test extends BaseComponent {
         this.toggle = false
     }
 
-    anotherThing() {
-        console.log(this.toggle)
-    }
+    anotherThing() {}
     init() {
         this.toggle = true
         this.triggerThing()

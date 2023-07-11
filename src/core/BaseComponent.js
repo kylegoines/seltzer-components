@@ -1,19 +1,21 @@
-import EventLayer from './EventLayer'
 import fixType from './fixType'
 
-class BaseComponent extends EventLayer {
+class BaseComponent {
     constructor() {
-        super()
-        this.node = null
-        this.elem = null
         this.name = null
+        this.elem = null
+        this.node = null
         this.options = {}
+
+        this.abortController = new AbortController()
     }
 
-    _acceptElem(el, name) {
-        this.node = el
-        this.elem = el
+    _acceptElem(elem, name) {
+        // during hydration, several values are populated
         this.name = name
+
+        this.elem = elem
+        this.node = elem // alias for elem :)
 
         // add options to the object
         // based off the pattern data-${name}-ANYTHING="value"
@@ -44,11 +46,38 @@ class BaseComponent extends EventLayer {
         })
 
         // options should now be filled - but we can massage the data to be more dev friendly
-        console.log(this.options)
+        // console.log(this.options)
     }
 
-    dispatchDestroy() {
-        this.dispatch('destroy')
+    ////////////////////////////////////////////////////////////////
+    // HELPER FUNCTIONS
+    ////////////////////////////////////////////////////////////////
+    // these functions are to be used by the user
+    // TODO: add formal documentation
+
+    // this is a safe way to remove all events on a destory method - not exactlyt what you might want for all cases
+    // but useful for a full component breakdown if you manage your events here
+    addEvent(eventTarget, event, handler) {
+        eventTarget.addEventListener(event, handler, {
+            signal: this.abortController.signal,
+        })
+    }
+
+    // this is the safe way to breakdown all events setup with this.addEvent()
+    destroyEvents() {
+        this.abortController.abort()
+    }
+
+    // a facade pattern to query to get a single data-COMPONENT_NAME-child element within a component scope
+    getChild(child) {
+        return this.elem.querySelector(`[data-${this.name}-${child}]`)
+    }
+
+    // a facade pattern to query to get a collection of data-COMPONENT_NAME-child elements within a component scope
+    getChildren(children) {
+        return [
+            ...this.elem.querySelectorAll(`[data-${this.name}-${children}]`),
+        ]
     }
 }
 

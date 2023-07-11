@@ -1,7 +1,6 @@
 // fix type makes some opinionated decisions about the data you ment to pass to the component
 
 function isNumeric(str) {
-    if (typeof str != 'string') return false // we only process strings!
     return (
         !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
         !isNaN(parseFloat(str))
@@ -18,11 +17,15 @@ function isBoolean(str) {
 
 const fixType = (primitive) => {
     if (isBoolean(primitive)) {
-        return Boolean(primitive.toLowerCase())
+        if (primitive.toLowerCase() === 'true') {
+            return true
+        } else {
+            return false
+        }
         // if looks like a boolean return as bool
     } else if (isNumeric(primitive)) {
-        return parseFloat(primitive)
         // if looks like a number
+        return parseFloat(primitive)
     } else {
         // if not any above they probably ment to return a string
         return primitive

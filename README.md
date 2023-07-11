@@ -1,7 +1,8 @@
-# Hit the ground running!
+# Seltzer Components
 
-This is the current scaffold I use for building myself npm libraries. As lean as it can be here. Just veit.
+Design system thinking to vanilla javascript. Componentize and scope your javascript.
 
-## What is this?
+## Mission Statement
 
-htgr-npm is a mission to create lean templates for you to just start writing code. These come with a set of opionionared configs that work best for me.
+Not all projects right for react, vue, or [insert new framework].
+Seltzer Components aims to systematize your interactive components across projects
