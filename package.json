@@ -1,22 +1,22 @@
 {
-  "name": "htgr-npm",
-  "private": false,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "main": "./dist/YOUR_LIB_NAME_HERE.umd.js",
-  "module": "./dist/YOUR_LIB_NAME_HERE.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/YOUR_LIB_NAME_HERE.es.js",
-      "require": "./dist/YOUR_LIB_NAME_HERE.umd.js"
+    "name": "seltzer-components",
+    "private": false,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "main": "./dist/seltzer-components.umd.js",
+    "module": "./dist/seltzer-components.es.js",
+    "exports": {
+        ".": {
+            "import": "./dist/seltzer-components.es.js",
+            "require": "./dist/seltzer-components.umd.js"
+        }
+    },
+    "devDependencies": {
+        "vite": "^4.4.0"
     }
-  },
-  "devDependencies": {
-    "vite": "^4.4.0"
-  }
 }

@@ -1,4 +1,4 @@
-// you have styles you need? Uncomment this
-// import './style.css'
+import components from './components'
+import manageComponents from './core/manageComponents'
 
-console.log('lib code here :)')
+manageComponents(components)

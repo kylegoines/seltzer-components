@@ -3,10 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lib test html page</title>
+        <title>seltzer test html page</title>
     </head>
     <body>
         <div>Hi there</div>
+
+        <div
+            data-component="test"
+            data-test-first="yes"
+            data-test-second="no"
+            data-test-bool="false"
+            data-test-num="123456"
+            data-test-float="123.456"
+        >
+            i am a test component
+        </div>
+        <div data-component="test">i am another test component</div>
+        <div data-component="next">i am another test component</div>
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>
