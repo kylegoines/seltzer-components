@@ -1,11 +1,11 @@
 {
     "name": "seltzer-components",
     "private": false,
-    "version": "0.1.1",
+    "version": "0.1.2",
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "tsc && vite build",
         "preview": "vite preview"
     },
     "main": "./dist/seltzer-components.umd.js",
@@ -17,6 +17,9 @@
         }
     },
     "devDependencies": {
+        "typescript": "^5.1.6",
         "vite": "^4.4.0"
-    }
+    },
+    "author": "Kyle Goines <kyle.goines@gmail.com>",
+    "homepage": "https://github.com/kylegoines/seltzer-components"
 }
